@@ -1,0 +1,15 @@
+---
+title: "Konstantin Pospelov's Blog"
+layout: default.liquid
+data:
+  route: blog
+---
+<div class="blog-list">
+  {% for post in collections.posts.pages %}
+    <div class="blog-post">
+      <span class="date"><time>{{ post.published_date | date: "%b %d, %Y" }}</time></span>
+      <span class="title"><a href="{{ post.permalink }}">{{ post.title }}</a></span>
+      <div class="post-excerpt">{{ post.excerpt }}</div>
+    </div>
+  {% endfor %}
+</div>
