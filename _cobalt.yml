@@ -18,17 +18,19 @@ posts:
 site:
   title: "Konstantin Pospelov's Blog"
   description: "Occasional notes"
-  base_url: "kupospelov.github.io"
+  base_url: "kupospelov.com"
   data: ~
 template_extensions:
   - md
   - liquid
 ignore:
   - README.md
+  - LICENSE
+  - Makefile
   - "build/*"
   - ".git/*"
 syntax_highlight:
-  theme: "base16-ocean.dark"
+  theme: "InspiredGitHub"
 assets:
   sass:
     style: Nested
