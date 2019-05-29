@@ -2,15 +2,32 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: snow;
   font-family: sans-serif;
   line-height: 1.5;
 }
 
 body {}
 
+h1 {
+  font-size: 25px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
 article h1 {
   text-align: center;
+}
+
+article pre {
+  padding: 5px;
+}
+
+code {
+  background: #edededcc;
+  padding: 3px;
+  border-radius: 3px;
 }
 
 footer {
@@ -76,6 +93,10 @@ main {
   margin-bottom: 30px;
 }
 
+.title {
+  margin: 5px;
+}
+
 hr {
   padding: 0;
   max-width: 900px;
@@ -108,9 +129,6 @@ hr {
 }
 
 @media all and (max-width:768px) {
-  h1 {
-    font-size: 40px;
-  }
   main {
     padding: 20px 40px;
   }
@@ -123,11 +141,5 @@ hr {
   }
   main {
     padding: 15px 20px;
-  }
-  h1 {
-    font-size: 30px;
-  }
-  h2 {
-    font-size: 20px;
   }
 }
