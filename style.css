@@ -6,7 +6,9 @@ body {
   line-height: 1.5;
 }
 
-body {}
+body {
+  width: calc(100vw - 30px);
+}
 
 h1 {
   font-size: 25px;
@@ -72,7 +74,7 @@ nav a.menu-item {
 main {
   margin: 0 auto;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   padding: 40px 40px;
   box-sizing: border-box;
   min-height: 600px;
@@ -113,7 +115,7 @@ hr {
   background-image: linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0));
 }
 
-@media all and (max-width:1024px) {
+@media all and (max-width:1366px) {
   main {
     padding: 25px 40px;
   }
