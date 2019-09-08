@@ -5,19 +5,24 @@ default:
   excerpt_separator: "\n\n"
   is_draft: false
 pages:
-  default: {}
+  default:
+    layout: default.liquid
 posts:
   title: ~
   description: ~
   dir: blog
-  drafts_dir: _drafts
   order: Desc
   rss: rss.xml
   jsonfeed: ~
-  default: {}
+  publish_date_in_filename: true
+  default:
+    layout: post.liquid
+    published_date: "2100-01-01 00:00:00 +0000"
+    data:
+      route: blog
 site:
   title: "Konstantin Pospelov's Blog"
-  description: "Occasional notes"
+  description: "occasional notes"
   base_url: "kupospelov.com"
   data: ~
 template_extensions:
