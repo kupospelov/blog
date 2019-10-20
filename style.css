@@ -88,6 +88,16 @@ main {
   box-shadow: 0 0 1px 1px #dedede;
 }
 
+.contacts {
+  float: right;
+}
+
+.contact-icon {
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+}
+
 .blog-list {
   text-align: left;
 }

@@ -21,7 +21,7 @@ posts:
     data:
       route: blog
 site:
-  title: "Konstantin Pospelov's Blog"
+  title: "Blog"
   description: "occasional notes"
   base_url: "kupospelov.com"
   data: ~
