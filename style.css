@@ -80,16 +80,16 @@ main {
   min-height: 600px;
 }
 
-.me-image {
-  height: 250px;
+.me {
   margin: 20px 50px;
+  text-align: center;
   float: right;
-  border-radius: 3px;
-  box-shadow: 0 0 1px 1px #dedede;
 }
 
-.contacts {
-  float: right;
+.me-image {
+  height: 250px;
+  border-radius: 3px;
+  box-shadow: 0 0 1px 1px #dedede;
 }
 
 .contact-icon {
@@ -142,6 +142,10 @@ hr {
   }
   .menu hr {
     display: block;
+  }
+  .me {
+    float: initial;
+    margin: 0;
   }
 }
 
