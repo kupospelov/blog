@@ -18,6 +18,10 @@ h2 {
   font-size: 20px;
 }
 
+a {
+  color: #000;
+}
+
 ul li {
   margin-bottom: 10px;
 }
@@ -31,9 +35,8 @@ article pre {
 }
 
 code {
-  background: #edededcc;
+  font-family: monospace;
   padding: 3px;
-  border-radius: 3px;
 }
 
 footer {
@@ -63,10 +66,6 @@ nav .menu-item {
   font-weight: 100;
 }
 
-nav a.menu-item {
-  color: #000;
-}
-
 .menu-item.current {
   font-weight: bold;
 }
@@ -92,10 +91,17 @@ main {
   box-shadow: 0 0 1px 1px #dedede;
 }
 
-.contact-icon {
-  width: 30px;
-  height: 30px;
-  padding: 10px;
+.contacts {
+  margin: 10px;
+}
+
+.contact {
+  padding: 5px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 3px;
 }
 
 .blog-list {
@@ -129,6 +135,7 @@ hr {
   main {
     padding: 25px 40px;
   }
+
   nav {
     position: static;
     margin: 0 auto;
@@ -136,13 +143,16 @@ hr {
     text-align: center;
     padding: 20px 0;
   }
+
   nav .menu-item {
     display: inline-block;
     padding: 10px 0 10px 20px;
   }
+
   .menu hr {
     display: block;
   }
+
   .me {
     float: initial;
     margin: 0;
@@ -160,7 +170,35 @@ hr {
     margin-top: 10px;
     height: 50px;
   }
+
   main {
     padding: 15px 20px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background: #282828;
+    color: #dedede
+  }
+
+  a {
+    color: #dedede;
+  }
+
+  hr {
+    background-image: -webkit-linear-gradient(left, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.3), rgba(222, 222, 222, 0));
+    background-image: -moz-linear-gradient(left, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.3), rgba(222, 222, 222, 0));
+    background-image: -o-linear-gradient(left, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.3), rgba(222, 222, 222, 0));
+    background-image: linear-gradient(left, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.3), rgba(222, 222, 222, 0));
+  }
+
+  code {
+    font-weight: bold;
+  }
+
+  .contact {
+    background: #dede70;
+    color: #282828;
   }
 }
