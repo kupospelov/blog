@@ -1,11 +1,10 @@
 ---
 title: Sway gets layout-independent bindsym command
-published_date: "2019-06-02 13:12:00 +0300"
-layout: post.liquid
-data:
-  route: blog
+date: 2019-06-02T13:12:00+03:00
 ---
 The default behavior of the `bindsym` command in Sway is a major pain point for users with several configured keyboard layouts. The command literally binds actions to keysyms, which means that your shortcuts constantly change their position or may not work at all.
+
+<!--more-->
 
 What makes it look even more weird is that in i3 `bindsym` _does_ work consistently in any layout, because i3 simply translates the specified keysyms into keycodes. You can even specify which layout should be used for the translation using `Group[1-4]`.
 

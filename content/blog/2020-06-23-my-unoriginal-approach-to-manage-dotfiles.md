@@ -1,11 +1,10 @@
 ---
 title: My unoriginal approach to manage dotfiles
-published_date: "2020-06-23 23:30:00 +0200"
-layout: post.liquid
-data:
-  route: blog
+date: 2020-06-23T23:30:00+02:00
 ---
-After I had to set up a few machines this year, I finally realized that I should finally have a tool to version and quickly restore my configuration files. This post is about what I came up with.
+After I had to set up a few machines this year, I finally realized that I should have a tool to version and quickly restore my configuration files. This post is about what I came up with.
+
+<!--more-->
 
 My `$HOME` is a git repository similar to one described in the [post](https://drewdevault.com/2019/12/30/dotfiles.html) by Drew DeVault. I like this approach, because there is no need in symlinks and git is a nice and familiar tool to use. My setup is a little bit different though.
 
