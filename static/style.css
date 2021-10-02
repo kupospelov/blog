@@ -11,10 +11,6 @@ body {
 }
 
 h1 {
-  font-size: 25px;
-}
-
-h2 {
   font-size: 20px;
 }
 
@@ -44,6 +40,7 @@ footer {
 }
 
 time {
+  font-family: monospace;
   font-weight: bold;
   color: #aaa;
 }
@@ -112,12 +109,8 @@ main {
   font-weight: bold;
 }
 
-.blog-excerpt {
+.blog-post {
   margin-bottom: 30px;
-}
-
-.title {
-  margin: 5px;
 }
 
 hr {
