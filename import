@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+if [ ! -d "$1" ]; then
+	echo "Usage: $0 <directory>"
+	exit 1
+fi
+
+hugo --minify -d "$1"
+cd "$1"
+git add .
+git commit -m "Site import"
+git push
