@@ -14,6 +14,10 @@ h1 {
   font-size: 20px;
 }
 
+h2 {
+  font-size: 18px;
+}
+
 a {
   color: #000;
 }
@@ -26,13 +30,21 @@ article h1 {
   text-align: center;
 }
 
-article pre {
-  padding: 5px;
+code {
+  font-family: monospace, monospace;
+  font-size: 14px;
 }
 
-code {
-  font-family: monospace;
-  padding: 3px;
+article > pre {
+  background: #eee;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+p > code {
+  background: #eee;
+  padding: 0.2rem;
+  border-radius: 4px;
 }
 
 footer {
@@ -186,8 +198,12 @@ hr {
     background-image: linear-gradient(left, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.3), rgba(222, 222, 222, 0));
   }
 
-  code {
-    font-weight: bold;
+  article > pre {
+    background: #353535;
+  }
+
+  p > code {
+    background: #353535;
   }
 
   .contact {
