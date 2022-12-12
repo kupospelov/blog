@@ -1,6 +1,8 @@
 ---
 title: Sway gets layout-independent bindsym command
 date: 2019-06-02T13:12:00+03:00
+aliases:
+- /blog/2019-06-02-sway-gets-layout-independent-bindsym-command.html
 ---
 The default behavior of the `bindsym` command in Sway is a major pain point for users with several configured keyboard layouts. The command literally binds actions to keysyms, which means that your shortcuts constantly change their position or may not work at all.
 
