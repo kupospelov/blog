@@ -1,12 +1,10 @@
 #!/bin/sh -e
 
-if [ ! -d "$1" ]; then
-	echo "Usage: $0 <directory>"
-	exit 1
-fi
+hugo --minify
 
-hugo --minify -d "$1"
-cd "$1"
+cd public
 git add .
+git diff --cached --word-diff
+
 git commit -m "Site import"
 git push
