@@ -14,20 +14,12 @@ h1 {
   font-size: 20px;
 }
 
-h2 {
-  font-size: 18px;
-}
-
 a {
   color: #000;
 }
 
 ul li {
   margin-bottom: 10px;
-}
-
-article h1 {
-  text-align: center;
 }
 
 code {

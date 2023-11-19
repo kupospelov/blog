@@ -8,7 +8,7 @@ I have a remote machine that I have to occasionally maintain. There is no easy w
 
 For this purpose I chose WireGuard, which is probably the simplest and fastest VPN solution available today. There is a great number of articles on this topic on the web. I mostly followed [this one](https://www.digitalocean.com/community/tutorials/how-to-set-up-wireguard-on-ubuntu-20-04), but used other available sources as well.
 
-## Base setup
+# Base setup
 
 Generate private and public keys for each peer using `wg genkey` and `wg pubkey`:
 
@@ -52,27 +52,33 @@ AllowedIPs = 10.8.0.$NUMBER/32
 
 That is it! You can bring up the interface using `wg-quick up wg0` on both ends. You can also use `wg-quick@wg0.service` to start the tunnel automatically using systemd.
 
-## Forwarding
+# Forwarding
+
 In order to allow the peers to communicate with each other we also need to enable packet forwarding.
 
 Set the following variables in `/etc/sysctl.conf`:
+
 ```
 net.ipv4.ip_forward = 1
 ```
 
 Enable forwarding on wg0:
+
 ```
 iptables -A FORWARD -i wg0 -o wg0 -j ACCEPT
 ```
 
-## Masquerading (optional)
+# Masquerading (optional)
+
 If you also want to route external traffic through the server, enable packet forwarding and masquerading on the external interface:
+
 ```
 iptables -A FORWARD -i wg0 -o $INTERFACE -j ACCEPT
 iptables -t nat -I POSTROUTING -o $INTERFACE -j MASQUERADE
 ```
 
 In this case also make sure to update `AllowedIPs` to `0.0.0.0/0` on the peers:
+
 ```
 [Peer]
 PublicKey = $PUBLIC_KEY

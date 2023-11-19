@@ -13,6 +13,7 @@ What makes it look even more weird is that in i3 `bindsym` _does_ work consisten
 The topic of input processing is far more complex than I could imagine, mostly because different people have _very_ different opinions about how it should be implemented. The very idea to change the meaning of the `bindsym` command triggered a lot of back-and-forth discussion with quite a few people involved.
 
 The process took some time, but in the end we finally got a solution that should work for everyone. With the new `--to-code` flag, the behavior of Sway's `bindsym` becomes roughly equivalent to that of i3. This is not as tedious as you might think, because you can specify the flag only once per block of bindings:
+
 ```
 bindsym --to-code {
     $mod+Return exec $term
@@ -22,6 +23,7 @@ bindsym --to-code {
 ```
 
 A few points regarding the current implementation:
+
 * The translation only uses the first configured layout. A change in the input configuration can trigger re-translation of the configured bindings.
 * In case the translation fails, the binding will work as an ordinary `bindsym`, and a warning will be logged. We cannot fail the command in this case, because `input` and `bindsym` commands can be in any order (and cannot be sorted, in case of IPC), so the relevant input configuration may not be available yet.
 * In case a keysym cannot be resolved into a single keycode, the translation will fail. This should not be a frequent use-case, so the complexity it introduces is not worth it at this point.
