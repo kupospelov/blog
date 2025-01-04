@@ -9,13 +9,13 @@ From time to time I play some (mostly older) Steam games, which implies running 
 
 As far as I know, unless we talk about more complicated options like AppArmor or SELinux, there are two general approaches to limit access to your personal files in Linux. Let's explore them both.
 
-## Running the binary as another user
+# Running the binary as another user
 
 In the pre-Wayland times I had a working setup in which my web browser was running as a different user. In this case standard Unix file access permissions could be used to prevent that user from having access to my primary user files.
 
 I tried using a similar approach this time as well, but found out that for Wayland/XWayland the setup became more involving. You can find more details in the [discussion](https://forums.gentoo.org/viewtopic-t-1133520-start-0-postdays-0-postorder-asc-highlight-.html) on the Gentoo forums, here I'll just summarize the approach, assuming the new user is `steam`.
 
-### Wayland
+## Wayland
 
 To run Wayland applications, the new user must have access to the Wayland socket. Your primary user owns it, but you can use `setfacl` to share it with `steam`:
 
@@ -24,7 +24,7 @@ setfacl -m steam:r-x -- "$XDG_RUNTIME_DIR"
 setfacl -m steam:rwx -- "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"
 ```
 
-### XWayland
+## XWayland
 
 To share access to the X server, you can configure mcookies:
 
@@ -39,7 +39,7 @@ This also requires setting the `-auth` argument for `Xwayland`. For wlroots-base
 
 I found this setup a little bit too clumsy for my use case, so I decided to look into sandboxing.
 
-## Running the binary in a sandbox
+# Running the binary in a sandbox
 
 The simplest option to run a sandboxed Steam would probably be Flatpak, however there are a few things I do not like about it, most of them are covered in the [Flatpak Is Not the Future](https://ludocode.com/blog/flatpak-is-not-the-future) post. Specifically, Steam _already_ uses sandboxing to replace the system libraries with its own. So, it makes little sense to use the heavy Flatpak environment, since the Steam runtime will re-mount almost everything anyway. It will not re-mount `$HOME` though, and this is what I want to fix.
 
