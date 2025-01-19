@@ -111,12 +111,9 @@ main {
 }
 
 .contact {
-  padding: 5px;
-  background: black;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 3px;
+  margin: 10px;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .blog-list {
@@ -213,7 +210,6 @@ hr {
   }
 
   .contact {
-    background: #dede70;
-    color: #282828;
+    filter: invert(1);
   }
 }
