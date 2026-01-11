@@ -1,9 +1,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>{{ .Title }} - Konstantin Pospelov</title>
-<link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+{{ $style := resources.Get "style.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" type="text/css" media="all" />
 {{ if .IsPage }}
-<link rel="stylesheet" href="/syntax-light.css" type="text/css" media="screen and (prefers-color-scheme: light)" />
-<link rel="stylesheet" href="/syntax-dark.css" type="text/css" media="screen and (prefers-color-scheme: dark)" />
+{{ $light := resources.Get "syntax-light.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $light.Permalink }}" type="text/css" media="screen and (prefers-color-scheme: light)" />
+{{ $dark := resources.Get "syntax-dark.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $dark.Permalink }}" type="text/css" media="screen and (prefers-color-scheme: dark)" />
 {{ end }}
 <link rel="icon" type="image/jpg" href="/img/me.jpg" />

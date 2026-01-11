@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-hugo --minify
+hugo --minify --cleanDestinationDir
 
 cd public
 git add .
