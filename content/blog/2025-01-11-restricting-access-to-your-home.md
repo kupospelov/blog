@@ -19,7 +19,7 @@ I tried using a similar approach this time as well, but found out that for Wayla
 
 To run Wayland applications, the new user must have access to the Wayland socket. Your primary user owns it, but you can use `setfacl` to share it with `steam`:
 
-```
+```sh
 setfacl -m steam:r-x -- "$XDG_RUNTIME_DIR"
 setfacl -m steam:rwx -- "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"
 ```
@@ -28,7 +28,7 @@ setfacl -m steam:rwx -- "$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"
 
 To share access to the X server, you can configure mcookies:
 
-```
+```sh
 touch ~/.Xauthority
 xauth add "$DISPLAY" . "$(mcookie)"
 ```
@@ -47,7 +47,7 @@ As it turns out, there are at least two lightweight sandboxing options: [firejai
 
 I came up with the following [wrapper](https://git.sr.ht/~kupospelov/dotfiles/tree/700f572b63a66e7eee2f708b269fac39322417e7/item/.local/bin/sandbox). Note that `/mnt/sandbox` is mounted as `$HOME`:
 
-```
+```sh
 exec /usr/bin/bwrap \
   --unshare-pid \
   --ro-bind /{,} \

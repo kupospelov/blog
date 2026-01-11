@@ -2,4 +2,8 @@
 <meta name="viewport" content="width=device-width">
 <title>{{ .Title }} - Konstantin Pospelov</title>
 <link rel="stylesheet" href="/style.css" type="text/css" media="all" />
+{{ if .IsPage }}
+<link rel="stylesheet" href="/syntax-light.css" type="text/css" media="screen and (prefers-color-scheme: light)" />
+<link rel="stylesheet" href="/syntax-dark.css" type="text/css" media="screen and (prefers-color-scheme: dark)" />
+{{ end }}
 <link rel="icon" type="image/jpg" href="/img/me.jpg" />

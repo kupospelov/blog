@@ -40,14 +40,14 @@ code {
   font-size: 14px;
 }
 
-article > pre {
-  background: #eee;
-  padding: 1rem;
+.highlight > pre {
   white-space: pre-wrap;
+  padding: 1rem;
+  border-radius: 4px;
 }
 
 p > code {
-  background: #eee;
+  background: #f7f7f7;
   padding: 0.2rem;
   border-radius: 4px;
 }
@@ -186,7 +186,7 @@ hr {
 
 @media (prefers-color-scheme: dark) {
   html {
-    background: #282828;
+    background: #010409;
     color: #dedede
   }
 
@@ -201,12 +201,8 @@ hr {
     background-image: linear-gradient(left, rgba(222, 222, 222, 0), rgba(222, 222, 222, 0.3), rgba(222, 222, 222, 0));
   }
 
-  article > pre {
-    background: #353535;
-  }
-
   p > code {
-    background: #353535;
+    background: #0d1117;
   }
 
   .contact {

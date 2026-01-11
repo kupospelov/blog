@@ -12,13 +12,13 @@ For this purpose I chose WireGuard, which is probably the simplest and fastest V
 
 Generate private and public keys for each peer using `wg genkey` and `wg pubkey`:
 
-```
+```sh
 wg genkey | tee private.key | wg pubkey > public.key
 ```
 
 Configure `/etc/wireguard/wg0.conf` on the server. Well, in the WireGuard world all machines are just "peers", however let's call the machine with a public IP a "server" for brevity. I use this as a template:
 
-```
+```ini
 [Interface]
 PrivateKey = $PRIVATE_KEY # The server private key
 Address = 10.8.0.1
@@ -28,7 +28,7 @@ SaveConfig = true
 
 Configure `/etc/wireguard/wg0.conf` on other peers that connect to our server. I use this as a template:
 
-```
+```ini
 [Interface]
 PrivateKey = $PRIVATE_KEY # The current peer private key
 Address = 10.8.0.$NUMBER/24
@@ -44,7 +44,7 @@ Note that I set [PersistentKeepalive](https://www.wireguard.com/quickstart/#nat-
 
 Add a new `[Peer]` section to your server config:
 
-```
+```ini
 [Peer]
 PublicKey = $PUBLIC_KEY # The public key of the new peer
 AllowedIPs = 10.8.0.$NUMBER/32
@@ -58,13 +58,13 @@ In order to allow the peers to communicate with each other we also need to enabl
 
 Set the following variables in `/etc/sysctl.conf`:
 
-```
+```ini
 net.ipv4.ip_forward = 1
 ```
 
 Enable forwarding on wg0:
 
-```
+```sh
 iptables -A FORWARD -i wg0 -o wg0 -j ACCEPT
 ```
 
@@ -72,14 +72,14 @@ iptables -A FORWARD -i wg0 -o wg0 -j ACCEPT
 
 If you also want to route external traffic through the server, enable packet forwarding and masquerading on the external interface:
 
-```
+```sh
 iptables -A FORWARD -i wg0 -o $INTERFACE -j ACCEPT
 iptables -t nat -I POSTROUTING -o $INTERFACE -j MASQUERADE
 ```
 
 In this case also make sure to update `AllowedIPs` to `0.0.0.0/0` on the peers:
 
-```
+```ini
 [Peer]
 PublicKey = $PUBLIC_KEY
 AllowedIPs = 0.0.0.0/0

@@ -14,7 +14,7 @@ The topic of input processing is far more complex than I could imagine, mostly b
 
 The process took some time, but in the end we finally got a solution that should work for everyone. With the new `--to-code` flag, the behavior of Sway's `bindsym` becomes roughly equivalent to that of i3. This is not as tedious as you might think, because you can specify the flag only once per block of bindings:
 
-```
+```sh
 bindsym --to-code {
     $mod+Return exec $term
     $mod+Shift+c reload
